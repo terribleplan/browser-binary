@@ -1,80 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-	function r(f,i){i=window.setInterval(function(){if(document.readyState!=="complete")return;window.clearInterval(i);f();},37)}
-</script>
-<script type="text/javascript">
-	function modern() {
-		/* (Stolen from) Modernizr 3.0.0pre (Custom Build) | MIT  */
-		if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
-			return false;
-		}
-		var elem = document.createElement('input');
-		elem.type = 'file';
-		if (elem.disabled) {
-			return false;
-		}
-		return !!(window.File && window.FileList && window.FileReader);
-	}
-</script>
-<script type="text/javascript">
-(function() {
-	function ReadResult(data) {
-		var transformCache = {};
-		var transformProxy = {
-			_default: function() {
-				return data;
-			},
-			base64: function() {
-				return btoa(data);
-			}
-		}
-		this.transform = function(to) {
-			if (transformProxy.hasOwnProperty(to)) {
-				return transformProxy[to]();
-			}
-			return transformProxy('_default');
-		}
-	}
-
-	r(function() {
-		var m = modern();
-		document.getElementById((m ? "" : "un") + "supported").style.display = "block";
-		if (!m) {
-			return;
-		}
-
-		var fileSelector = document.getElementById("file");
-		var output = document.getElementById("output");
-		var type = document.getElementById("type");
-		var currentResult = null;
-
-		function update() {
-			if (currentResult == null) {
-				output.innerText = "No file loaded."
-				return;
-			}
-			output.innerText = currentResult.transform(type.value);
-		}
-
-		fileSelector.onchange = function() {
-			var reader = new FileReader();
-			reader.onload = function() {
-				currentResult = new ReadResult(reader.result);
-				update();
-			}
-			reader.readAsBinaryString(fileSelector.files[0]);
-		}
-
-		type.onchange = function() {
-			update();
-		}
-		window.u = update;
-	});
-})();
-</script>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://terribleplan.com/lib/micro.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<title>terribleplan | Browser Binary</title>
 </head>
 <body>
