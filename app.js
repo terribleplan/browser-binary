@@ -1,4 +1,3 @@
-u$.ldGa("UA-58423761-1");
 (function() {
     function ReadResult(data) {
         var transformCache = {};
@@ -18,12 +17,7 @@ u$.ldGa("UA-58423761-1");
         }
     }
 
-    u$.r(function() {
-        document.getElementById((u$.modern ? "" : "un") + "supported").style.display = "block";
-        if (!u$.modern) {
-            return;
-        }
-
+    window.addEventListener('DOMContentLoaded', (function() {
         var fileSelector = document.getElementById("file");
         var output = document.getElementById("output");
         var type = document.getElementById("type");
